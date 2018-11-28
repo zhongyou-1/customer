@@ -4,6 +4,7 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /***
  * 
@@ -24,8 +25,8 @@ public interface SecurityClient {
 	 * @param id
 	 * @return
 	 */
-	 @RequestMapping(value = "server-hello",method = RequestMethod.GET)
-	 public String get(@PathVariable("id") String id);
+	 @RequestMapping(value = "hello",method = RequestMethod.GET)
+	 public String hello();
 	 
 	 
 }

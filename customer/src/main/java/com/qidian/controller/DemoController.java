@@ -39,12 +39,17 @@ public class DemoController {
 	@Autowired
 	private  SecurityClient securityClient;
 	
-	@RequestMapping("/testServer/{id}")
+	@RequestMapping("/testServer")
 	@ResponseBody
-	public String testServer(@PathVariable("id") String id) {
+	public String testServer( ) {
 		 
-		logger.info("进来了--------------》》》》"+id);
-		return securityClient.get(id);
+		logger.info("进来了--------------》》》》");
+		long sys = System.currentTimeMillis();
+		for (int i = 0; i <10000; i++) {
+			System.out.println(securityClient.hello( ));
+		}
+		long end = System.currentTimeMillis();
+		return " 1W台冲击结束,耗时："+(end-sys);
 	}
 	
 	
