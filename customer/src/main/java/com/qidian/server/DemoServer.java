@@ -25,7 +25,6 @@ public class DemoServer {
 
 		return "hello----我是服务提供者 get " + id.toString();
 	}
-
 	@PostMapping("server-post")
 	public String post(@PathVariable String id) {
 		/***
