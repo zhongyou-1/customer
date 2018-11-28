@@ -29,6 +29,7 @@ import com.qidian.server.client.SecurityClient;
 @RequestMapping("/demo")
 public class DemoController {
 
+	
 	protected static Logger logger = LoggerFactory.getLogger(DemoController.class);
 	@PersistenceContext
 	private EntityManager manager;

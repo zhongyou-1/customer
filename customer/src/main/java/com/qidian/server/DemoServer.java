@@ -28,7 +28,6 @@ public class DemoServer {
 
 	@PostMapping("server-post")
 	public String post(@PathVariable String id) {
-
 		/***
 		 * 具体业务逻辑
 		 */
