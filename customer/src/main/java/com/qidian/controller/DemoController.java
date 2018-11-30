@@ -45,11 +45,13 @@ public class DemoController {
 		 
 		logger.info("进来了--------------》》》》");
 		long sys = System.currentTimeMillis();
-		for (int i = 0; i <10000; i++) {
-			System.out.println(securityClient.hello( ));
-		}
+//		for (int i = 0; i <10000; i++) {
+//			System.out.println(securityClient.hello( ));
+//		}
 		long end = System.currentTimeMillis();
-		return " 1W台冲击结束,耗时："+(end-sys);
+		
+	 
+		return securityClient.hello( )+"  冲击结束,耗时："+(end-sys);
 	}
 	
 	

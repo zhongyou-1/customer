@@ -31,11 +31,12 @@ spring:
 hystrix:
   metrics:
     polling-interval-ms: 3000 #后续轮询度量之间的间隔。默认为2000 ms。
-
+    enabled: true #启用 断路器（避免该应用在崩溃的情况下，雪崩整体应用） 
+   
 eureka:
   client:
     serviceUrl:
-          defaultZone: http://47.105.58.164:9096/eureka/#服务注册中心的配置内容，指定服务注册中心的Url
+      defaultZone: http://47.105.58.164:9096/eureka/ #eureka服务注册地址 服务注册中心的配置内容，指定服务注册中心的Url        
   
           
  #######=============以下参考可自行设置放开====================    

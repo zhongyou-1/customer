@@ -1,10 +1,11 @@
 package com.qidian.server.client;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import com.qidian.server.hystric.DemoHystric;
 
 /***
  * 
@@ -17,7 +18,15 @@ import org.springframework.web.bind.annotation.RequestParam;
  * application:
     name 的名称（serviceSecurity）
  */
-@FeignClient(name="serviceSecurity")//所要消费的提供者名称
+/* value="serviceSecurity"  所要消费的提供者名称
+ * fallback = DemoHystric.class
+ * DemoHystric 是开启 断路器，当提供者崩溃或者连接超时则响应自定义提示
+ * SchedualServiceHiHystric需要实现SchedualServiceHi 接口，并注入到Ioc容器中，
+ * 开启使用断路器的前提是设置（feign.hystrix.enabled=true）默认是false
+ * 作用：
+ * 会执行快速失败，直接返回一组字符串，而不是等待响应超时，这很好的控制了容器的线程阻塞
+ * */
+@FeignClient(value="serviceSecurity",fallback = DemoHystric.class)
 public interface SecurityClient {
 
 	/**

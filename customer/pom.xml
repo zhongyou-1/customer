@@ -67,11 +67,23 @@
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
          <!-- 集成 cloud  end  -->
-         <!-- 集成 feign  支持远程消费  -->
+         <!-- 集成 feign  支持远程消费  start  -->
          <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-feign</artifactId>
          </dependency>
+         <!-- 集成 feign  支持远程消费 end   -->
+        <!-- Hystrix 仪表盘   start --> 
+        <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-actuator</artifactId>
+	    </dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+		</dependency>
+         <!-- Hystrix 仪表盘   end --> 
       </dependencies>
 
   <build>
