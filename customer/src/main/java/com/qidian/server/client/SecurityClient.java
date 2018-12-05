@@ -24,7 +24,9 @@ import com.qidian.server.hystric.DemoHystric;
  * SchedualServiceHiHystric需要实现SchedualServiceHi 接口，并注入到Ioc容器中，
  * 开启使用断路器的前提是设置（feign.hystrix.enabled=true）默认是false
  * 作用：
- * 会执行快速失败，直接返回一组字符串，而不是等待响应超时，这很好的控制了容器的线程阻塞
+ 
+ * 当 serviceSecurity工程不可用的时候，customer-调用 serviceSecurity的API接口时，
+ * 会执行快速失败，直接返回一组字符串，而不是等待响应超时，这很好的控制了容器的线程阻塞。
  * */
 @FeignClient(value="serviceSecurity",fallback = DemoHystric.class)
 public interface SecurityClient {
